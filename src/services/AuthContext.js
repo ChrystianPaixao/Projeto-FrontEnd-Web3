@@ -6,7 +6,6 @@ export function AuthProvider({ children }) {
   const [usuario, setUsuario] = useState(null);
   const [token, setToken] = useState(null);
 
-  // Carregar login salvo quando a página abrir
   useEffect(() => {
     const savedToken = localStorage.getItem("token");
     const savedUser = localStorage.getItem("usuario");
@@ -17,7 +16,6 @@ export function AuthProvider({ children }) {
     }
   }, []);
 
-  // Função para logar
   const login = (token, usuario) => {
     localStorage.setItem("token", token);
     localStorage.setItem("usuario", JSON.stringify(usuario));
@@ -26,7 +24,6 @@ export function AuthProvider({ children }) {
     setUsuario(usuario);
   };
 
-  // Função para deslogar
   const logout = () => {
     localStorage.removeItem("token");
     localStorage.removeItem("usuario");
